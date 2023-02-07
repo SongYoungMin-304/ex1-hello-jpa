@@ -57,10 +57,19 @@ public class JpaMain {
             em.persist(member1);
             em.persist(member2);
 */
+/*            Member member = em.find(Member.class, 150L);
+            member.setName("C");*/
+/*
+            Member member1 = new Member(200L, "member200");
+            em.persist(member1);*/
+
+            // 1차 캐시 db 동기화 처리 진행
+
+
             Member member = em.find(Member.class, 150L);
             member.setName("C");
 
-            System.out.println("-----------------------------");
+            em.detach(member);
 
             tx.commit();
         }catch (Exception e){
